@@ -1,0 +1,11 @@
+SELECT id AS post_id
+FROM helo_posts p;
+
+SELECT author_id AS author_username
+FROM helo_posts p;
+
+SELECT p.id AS 
+FROM helo_posts p
+JOIN helo_users u ON u.id = p.author_id
+WHERE p.author_id LIKE $1
+ORDER BY date_created DESC;

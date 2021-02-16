@@ -39,6 +39,23 @@ module.exports = {
     },
     createPost: (req, res) => {
       //code here
+      const db = req.app.get('db');
+      const {id} = req.session.user;
+      const {title, img, content} = req.body
+      const date = newDate;
+      if (id) {
+        db.create_post =[
+          id = '',
+          title = '',
+          img = '',
+          content = '',
+          date = ''
+        ]
+      }
+      if(!id) {
+        return res.status(403).send('Nerp! Not today!')
+      }
+
     },
     readPost: (req, res) => {
       req.app.get('db').post.read_post(req.params.id)
@@ -46,6 +63,6 @@ module.exports = {
     },
     deletePost: (req, res) => {
       req.app.get('db').post.delete_post(req.params.id)
-        .then(_ => res.sendStatus(200))
+        .then(post => res.sendStatus(200).delete(post[0]))
     }
   }
