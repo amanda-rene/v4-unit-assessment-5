@@ -4,6 +4,7 @@ const express = require('express'),
       userCtrl = require('./controllers/user'),
       postCtrl = require('./controllers/posts');
 const session = require('express-session');
+const bcrypt = require('bcrypt')
 
 
 

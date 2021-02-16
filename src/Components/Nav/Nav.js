@@ -56,4 +56,4 @@ class Nav extends Component {
 
 
 
-export default Nav(withRouter(Nav));
+export default withRouter(Nav);
