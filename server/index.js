@@ -44,4 +44,6 @@ app.post('/api/post', postCtrl.createPost);
 app.get('/api/post/:id', postCtrl.readPost);
 app.delete('/api/post/:id', postCtrl.deletePost)
 
+
+
 app.listen(PORT, () => console.log(`running on ${PORT}`));
