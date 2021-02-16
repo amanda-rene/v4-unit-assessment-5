@@ -6,6 +6,9 @@ import logoutLogo from './../../assets/shut_down.png';
 import './Nav.css';
 import {withRouter} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import updateUser from '../../redux/reducer';
+import logout from '../../redux/reducer';
 
 
 class Nav extends Component {
@@ -31,11 +34,14 @@ class Nav extends Component {
   }
   
   render() {
+    console.log(this.props)
       return this.props.location.pathname !== '/' &&
         <div className='nav'>
           <div className='nav-profile-container'>
-            <div className='nav-profile-pic'></div>
-            <p>placeholder username</p>
+            <div className='nav-profile-pic'>
+              {/* {this.style = {backgroundImage: url('${REDUX_STATE_PIC}')}} */}
+            </div>
+            <p>{this.state.name}</p>
           </div>
           <div className='nav-links'>
             <Link to="/">
@@ -54,6 +60,6 @@ class Nav extends Component {
   }
 }
 
+const mapStateToProps = state => state
 
-
-export default withRouter(Nav);
+export default withRouter(Nav, connect(mapStateToProps, {updateUser, logout}));
